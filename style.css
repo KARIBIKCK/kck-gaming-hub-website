@@ -1,0 +1,1166 @@
+/* =========================================
+   KCK GAMING HUB
+   FUTURISTIC WEBSITE STYLES
+   ========================================= */
+
+
+/* =========================================
+   BASIC RESET
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   BODY
+   ========================================= */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    min-height: 100vh;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            #3a0645 0%,
+            #160021 35%,
+            #050008 70%,
+            #000000 100%
+        );
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   MOVING PARTICLE BACKGROUND
+   ========================================= */
+
+#particleCanvas {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 0;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   NAVIGATION BAR
+   ========================================= */
+
+.navbar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 90px;
+
+    padding: 15px 25px;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: flex-end;
+
+    z-index: 1000;
+}
+
+
+/* =========================================
+   NAVIGATION CONTROL
+   ========================================= */
+
+.nav-control {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    z-index: 1005;
+}
+
+
+/* =========================================
+   MENU BUTTON
+   ========================================= */
+
+.menu-button {
+    width: 55px;
+    height: 55px;
+
+    border: 1px solid #ff2bd6;
+
+    border-radius: 14px;
+
+    background: #050008;
+
+    color: white;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+    position: relative;
+
+    z-index: 1005;
+
+    box-shadow:
+        0 0 12px #ff2bd6,
+        inset 0 0 12px #300025;
+
+    transition:
+        transform 1.6s cubic-bezier(.2,.7,.2,1),
+        box-shadow 0.6s ease,
+        border-radius 0.6s ease;
+}
+
+
+/* =========================================
+   OPEN MENU BUTTON
+   ========================================= */
+
+.menu-button.active {
+
+    transform:
+        translateX(-430px)
+        rotate(180deg);
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 0 20px #ff2bd6,
+        0 0 35px rgba(255,43,214,.45);
+}
+
+
+/* =========================================
+   LANGUAGE SELECTOR
+   ========================================= */
+
+#language {
+
+    margin-top: 8px;
+
+    padding: 6px 10px;
+
+    min-width: 100px;
+
+    border-radius: 8px;
+
+    background: #050008;
+
+    color: white;
+
+    border: 1px solid #ff2bd6;
+
+    outline: none;
+
+    cursor: pointer;
+
+    z-index: 1006;
+
+    font-size: 13px;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   LANGUAGE OPTIONS
+   ========================================= */
+
+#language option {
+
+    background: #050008;
+
+    color: white;
+}
+
+
+/* =========================================
+   NAVIGATION MENU PANEL
+   ========================================= */
+
+.menu-panel {
+    position: absolute;
+
+    /*
+       IMPORTANT:
+       Navbar has 15px top padding,
+       so the menu panel must also start at 15px.
+    */
+    top: 15px;
+
+    /*
+       Button is 55px wide and sits at the
+       right side of the navbar.
+    */
+    right: 80px;
+
+    width: 0;
+    height: 55px;
+
+    overflow: hidden;
+
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    gap: 32px;
+
+    padding: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #050008,
+            #21002c,
+            #050008
+        );
+
+    border: 1px solid #ff2bd6;
+
+    border-radius: 28px 0 0 28px;
+
+    opacity: 0;
+
+    transform:
+        translateX(60px)
+        scaleX(0.05);
+
+    transform-origin: right center;
+
+    transition:
+        width 1.6s cubic-bezier(.2,.7,.2,1),
+        transform 1.6s cubic-bezier(.2,.7,.2,1),
+        opacity 0.5s ease;
+
+    z-index: 1002;
+}
+
+
+/* =========================================
+   OPEN MENU PANEL
+   ========================================= */
+
+.menu-panel.show {
+
+    width: 430px;
+
+    height: 55px;
+
+    padding:
+        0
+        30px
+        0
+        38px;
+
+    opacity: 1;
+
+    transform:
+        translateX(0)
+        scaleX(1);
+
+    box-shadow:
+        0 0 15px #ff2bd6,
+        0 0 35px rgba(255,43,214,.35),
+        inset 0 0 20px rgba(255,43,214,.12);
+}
+
+
+/* =========================================
+   MENU LINKS
+   ========================================= */
+
+.menu-panel a {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex: 0 0 auto;
+
+    height: 55px;
+
+    margin: 0;
+
+    padding: 0;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    line-height: 1;
+
+    white-space: nowrap;
+
+    opacity: 0;
+
+    transform: translateX(-25px);
+
+    transition:
+        opacity 0.6s ease,
+        transform 0.7s ease,
+        color 0.2s;
+}
+
+
+/* =========================================
+   SHOW LINKS
+   ========================================= */
+
+.menu-panel.show a {
+
+    opacity: 1;
+
+    transform: translateX(0);
+}
+
+
+/* =========================================
+   LINK DELAYS
+   ========================================= */
+
+.menu-panel.show a:nth-child(1) {
+    transition-delay: 0.45s;
+}
+
+.menu-panel.show a:nth-child(2) {
+    transition-delay: 0.55s;
+}
+
+.menu-panel.show a:nth-child(3) {
+    transition-delay: 0.65s;
+}
+
+.menu-panel.show a:nth-child(4) {
+    transition-delay: 0.75s;
+}
+
+
+/* =========================================
+   LINK HOVER
+   ========================================= */
+
+.menu-panel a:hover {
+
+    color: #ff2bd6;
+
+    text-shadow:
+        0 0 10px #ff2bd6,
+        0 0 20px #8a006f;
+}
+
+
+/* =========================================
+   MAIN HERO
+   ========================================= */
+
+.hero {
+
+    position: relative;
+
+    z-index: 2;
+
+    min-height: 100vh;
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding:
+        130px
+        25px
+        60px;
+}
+
+
+/* =========================================
+   TOP LEFT KCK LOGO
+   ========================================= */
+
+.logo {
+
+    position: absolute;
+
+    top: 18px;
+
+    left: 25px;
+
+    width: 110px;
+
+    height: 110px;
+
+    z-index: 900;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* =========================================
+   LOGO IMAGE
+   ========================================= */
+
+.logo-image {
+
+    position: relative;
+
+    width: 100px;
+
+    height: 100px;
+
+    overflow: hidden;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 2px solid #ff2bd6;
+
+    background: #05000a;
+
+    z-index: 2;
+
+    box-shadow:
+        0 0 12px #ff2bd6,
+        0 0 25px rgba(255,43,214,.35);
+}
+
+
+/* =========================================
+   LOGO IMAGE ITSELF
+   ========================================= */
+
+.logo-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+
+    border-radius: 50%;
+}
+
+
+/* =========================================
+   RED • WHITE • BLUE SPINNING RING
+   ========================================= */
+
+.logo::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 110px;
+
+    height: 110px;
+
+    border-radius: 50%;
+
+    background:
+        conic-gradient(
+            #ff2020 0deg 120deg,
+            #ffffff 120deg 240deg,
+            #155cff 240deg 360deg
+        );
+
+    animation:
+        logoRingSpin 4s linear infinite;
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   RING INNER CUTOUT
+   ========================================= */
+
+.logo::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 4px;
+
+    left: 4px;
+
+    width: 102px;
+
+    height: 102px;
+
+    border-radius: 50%;
+
+    background: #05000a;
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   RING ROTATION
+   ========================================= */
+
+@keyframes logoRingSpin {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* =========================================
+   CENTER HERO IMAGE
+   ========================================= */
+
+.brand {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin-top: -30px;
+
+    margin-bottom: 22px;
+
+    overflow: visible;
+}
+
+
+/* =========================================
+   CENTER IMAGE
+   ========================================= */
+
+.brand img {
+
+    width: 560px;
+
+    height: auto;
+
+    max-width: 90vw;
+
+    display: block;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 0 10px #ff2bd6)
+        drop-shadow(0 0 25px rgba(255,43,214,.6));
+}
+
+
+/* =========================================
+   HERO TITLE
+   ========================================= */
+
+.hero h3 {
+
+    margin-bottom: 15px;
+
+    font-size: 28px;
+
+    font-weight: 900;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================
+   HERO DESCRIPTION
+   ========================================= */
+
+.hero p {
+
+    max-width: 600px;
+
+    margin-bottom: 5px;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+
+    color: #d8c8dc;
+}
+
+
+/* =========================================
+   SIGN IN BUTTON
+   ========================================= */
+
+button[onclick="joinTournament()"] {
+
+    display: block;
+
+    margin: 30px auto 0;
+
+    padding: 10px 40px;
+
+    border: 2px solid #ff2bd6;
+
+    border-radius: 35px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #650052,
+            #d400a8,
+            #650052
+        );
+
+    color: white;
+
+    font-size: 20px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    text-align: center;
+
+    box-shadow:
+        0 0 15px rgba(255,43,214,.7),
+        0 0 35px rgba(180,0,150,.35);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* =========================================
+   SIGN IN HOVER
+   ========================================= */
+
+button[onclick="joinTournament()"]:hover {
+
+    transform: scale(1.06);
+
+    box-shadow:
+        0 0 20px #ff2bd6,
+        0 0 45px rgba(255,43,214,.6);
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .brand img {
+
+        width: 85vw;
+
+        max-width: 400px;
+    }
+
+
+    .logo {
+
+        width: 90px;
+
+        height: 90px;
+
+        top: 15px;
+
+        left: 15px;
+    }
+
+
+    .logo-image {
+
+        width: 80px;
+
+        height: 80px;
+    }
+
+
+    .logo::before {
+
+        width: 90px;
+
+        height: 90px;
+    }
+
+
+    .logo::after {
+
+        width: 82px;
+
+        height: 82px;
+
+        top: 4px;
+
+        left: 4px;
+    }
+
+
+    .menu-panel.show {
+
+        width: 320px;
+
+        padding-left: 25px;
+
+        padding-right: 15px;
+    }
+
+
+    .menu-panel {
+
+        right: 55px;
+
+        gap: 18px;
+    }
+
+
+    .menu-panel a {
+
+        font-size: 14px;
+    }
+
+
+    .menu-button.active {
+
+        transform:
+            translateX(-320px)
+            rotate(180deg);
+    }
+
+
+    .hero h3 {
+
+        font-size: 23px;
+    }
+
+
+    .hero p {
+
+        font-size: 15px;
+    }
+
+
+    button[onclick="joinTournament()"] {
+
+        padding:
+            14px 42px;
+
+        font-size: 18px;
+    }
+
+
+    #language {
+
+        min-width: 90px;
+
+        font-size: 12px;
+    }
+
+}
+/* =========================================
+   SMALL TAP RIPPLE
+   ========================================= */
+
+.tap-ripple {
+
+    position: fixed;
+
+    width: 16px;
+    height: 16px;
+
+    border: 2px solid #ff2bd6;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0);
+
+    animation:
+        tapRipple 0.7s ease-out forwards;
+
+    z-index: 9999;
+
+    box-shadow:
+        0 0 8px #ff2bd6,
+        0 0 18px rgba(255,43,214,.6);
+}
+
+
+/* =========================================
+   RIPPLE ANIMATION
+   ========================================= */
+
+@keyframes tapRipple {
+
+    0% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(0);
+
+        opacity: 1;
+    }
+
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(4);
+
+        opacity: 0;
+    }
+}
+/* =========================================
+   KCK SIGN IN PANEL
+   ========================================= */
+
+.login-panel {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(5, 0, 8, 0.82);
+
+    backdrop-filter: blur(8px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.4s ease,
+        visibility 0.4s ease;
+
+    z-index: 5000;
+}
+
+
+/* =========================================
+   OPEN LOGIN PANEL
+   ========================================= */
+
+.login-panel.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* =========================================
+   LOGIN BOX
+   ========================================= */
+
+.login-box {
+
+    position: relative;
+
+    width: 380px;
+
+    max-width: 90vw;
+
+    padding: 40px 35px;
+
+    text-align: center;
+
+    border: 1px solid #ff2bd6;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #18001f,
+            #050008
+        );
+
+    box-shadow:
+        0 0 20px rgba(255,43,214,.5),
+        0 0 60px rgba(120,0,100,.35),
+        inset 0 0 25px rgba(255,43,214,.08);
+
+    transform:
+        translateY(25px)
+        scale(.95);
+
+    transition:
+        transform 0.4s ease;
+}
+
+
+.login-panel.show .login-box {
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* =========================================
+   LOGIN TITLE
+   ========================================= */
+
+.login-box h2 {
+
+    margin-bottom: 8px;
+
+    color: white;
+
+    font-size: 25px;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+
+    text-shadow:
+        0 0 10px #ff2bd6,
+        0 0 25px rgba(255,43,214,.6);
+}
+
+
+.login-title {
+
+    margin-bottom: 25px;
+
+    color: #ff2bd6;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================================
+   INPUTS
+   ========================================= */
+
+.login-box input {
+
+    display: block;
+
+    width: 100%;
+
+    height: 48px;
+
+    margin-bottom: 15px;
+
+    padding: 0 15px;
+
+    border: 1px solid rgba(255,43,214,.55);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background:
+        rgba(0,0,0,.55);
+
+    color: white;
+
+    font-size: 15px;
+
+    transition:
+        border-color .25s ease,
+        box-shadow .25s ease;
+}
+
+
+.login-box input::placeholder {
+
+    color: #a996ac;
+}
+
+
+.login-box input:focus {
+
+    border-color: #ff2bd6;
+
+    box-shadow:
+        0 0 10px rgba(255,43,214,.4);
+}
+
+
+/* =========================================
+   ENTER BUTTON
+   ========================================= */
+
+.login-submit {
+
+    width: 100%;
+
+    margin-top: 10px;
+
+    padding: 13px 20px;
+
+    border: 1px solid #ff2bd6;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #650052,
+            #d400a8,
+            #650052
+        );
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 15px rgba(255,43,214,.45);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+
+.login-submit:hover {
+
+    transform: scale(1.03);
+
+    box-shadow:
+        0 0 20px #ff2bd6,
+        0 0 35px rgba(255,43,214,.5);
+}
+
+
+/* =========================================
+   CLOSE BUTTON
+   ========================================= */
+
+.close-login {
+
+    position: absolute;
+
+    top: 12px;
+
+    right: 15px;
+
+    width: 34px;
+
+    height: 34px;
+
+    border: 1px solid #ff2bd6;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 23px;
+
+    line-height: 28px;
+
+    cursor: pointer;
+
+    transition:
+        transform .25s ease,
+        background .25s ease;
+}
+
+
+.close-login:hover {
+
+    transform: rotate(90deg);
+
+    background: #ff2bd6;
+
+    color: #050008;
+}
