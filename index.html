@@ -20,10 +20,18 @@
 
 <body>
 
-     <canvas id="particleCanvas"></canvas>
-    <!-- ================================
-         NAVIGATION
-         ================================= -->
+
+    <!-- =====================================================
+         PARTICLE BACKGROUND
+    ====================================================== -->
+
+    <canvas id="particleCanvas"></canvas>
+
+
+
+    <!-- =====================================================
+         MAIN NAVIGATION
+    ====================================================== -->
 
     <nav class="navbar">
 
@@ -32,6 +40,7 @@
             <button
                 id="menuButton"
                 class="menu-button"
+                type="button"
                 onclick="toggleMenu()"
                 aria-label="Open navigation">
 
@@ -40,35 +49,77 @@
             </button>
 
 
-            <select id="language" onchange="changeLanguage()">
-    <option value="English">English</option>
-    <option value="French">French</option>
-    <option value="Spanish">Spanish</option>
-    <option value="Russian">Russian</option>
-    <option value="Arabic">Arabic</option>
-</select>
+            <select
+                id="language"
+                onchange="changeLanguage()">
+
+                <option value="English">
+                    English
+                </option>
+
+                <option value="French">
+                    French
+                </option>
+
+                <option value="Spanish">
+                    Spanish
+                </option>
+
+                <option value="Russian">
+                    Russian
+                </option>
+
+                <option value="Arabic">
+                    Arabic
+                </option>
+
+            </select>
 
         </div>
 
+
+
+        <!-- =================================================
+             MENU PANEL
+        ================================================== -->
 
         <div
             id="menuPanel"
             class="menu-panel">
 
-            <a href="#home">
-                Home
+            <a
+                href="#home"
+                onclick="showPage('home')">
+
+                HOME
+
             </a>
 
-            <a href="#news">
-                News
+
+            <a
+                href="#tournaments"
+                onclick="showPage('tournaments')">
+
+                TOURNAMENTS
+
             </a>
 
-            <a href="#contact">
-                Contact
+
+            <a
+                href="#about"
+                onclick="showPage('about')">
+
+                ABOUT
+
             </a>
 
-            <a href="#about">
-                About
+
+            <a
+                href="#news"
+                onclick="showPage('news')">
+
+                NEWS
+
             </a>
 
         </div>
@@ -77,22 +128,263 @@
 
 
 
-    <!-- ================================
-         MAIN HERO
-         ================================= -->
+    <!-- =====================================================
+         SMALL KCK LOGO
+    ====================================================== -->
 
-    <section class="hero">
+    <div class="logo">
+
+        <div class="logo-image">
+
+            <img
+                src="images/KCK-Logo.png"
+                alt="KCK Gaming Hub Logo">
+
+        </div>
+
+    </div>
 
 
-        <!-- SMALL LOGO -->
 
-        <div class="logo">
+    <!-- =====================================================
+         MAIN WEBSITE
+    ====================================================== -->
 
-            <div class="logo-image">
+    <main>
+
+
+        <!-- =================================================
+             HOME
+        ================================================== -->
+
+        <section
+            id="home"
+            class="hero site-page active-page">
+
+
+            <div class="brand">
 
                 <img
-                    src="images/KCK-Logo.png"
-                    alt="KCK Gaming Hub Logo">
+                    src="images/KCK-Hero.png"
+                    alt="KCK Gaming Hub">
+
+            </div>
+
+
+            <h3>
+                BECOME A CHAMPION
+            </h3>
+
+
+            <p>
+                Compete Worldwide,
+                Prove Yourself Among Players
+                From Around The Globe,
+                And Win Amazing Cash Prizes
+            </p>
+
+
+            <button
+                type="button"
+                onclick="joinTournament()">
+
+                SIGN IN
+
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             EMPTY NEWS PAGE
+        ================================================== -->
+
+        <section
+            id="news"
+            class="site-page">
+
+        </section>
+
+
+
+        <!-- =================================================
+             EMPTY TOURNAMENTS PAGE
+        ================================================== -->
+
+        <section
+            id="tournaments"
+            class="site-page">
+
+        </section>
+
+
+
+        <!-- =================================================
+             EMPTY ABOUT PAGE
+        ================================================== -->
+
+        <section
+            id="about"
+            class="site-page">
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         LOGIN PANEL
+    ====================================================== -->
+
+    <div
+        id="loginPanel"
+        class="login-panel">
+
+        <div class="login-box">
+
+
+            <button
+                type="button"
+                class="close-login"
+                onclick="closeLogin()"
+                aria-label="Close login">
+
+                ×
+
+            </button>
+
+
+            <h2>
+                KCK GAMING HUB
+            </h2>
+
+
+            <input
+                type="text"
+                id="gamerName"
+                placeholder="Gamer Name"
+                autocomplete="nickname">
+
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Email Address"
+                autocomplete="email">
+
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Password"
+                autocomplete="current-password">
+
+
+            <button
+                type="button"
+                class="login-submit"
+                onclick="submitLogin()">
+
+                ENTER GAMING HUB
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         PLAYER DASHBOARD
+    ====================================================== -->
+
+    <div
+        id="playerDashboard">
+
+
+        <!-- DASHBOARD LEFT -->
+
+        <div class="dashboard-left">
+
+            <button
+                type="button"
+                class="dashboard-button kck-points">
+
+                KCK POINTS:
+
+                <span id="playerPoints">
+                    0
+                </span>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="dashboard-button shop-button">
+
+                🛒 SHOP
+
+            </button>
+
+        </div>
+
+
+
+        <!-- DASHBOARD RIGHT -->
+
+        <div class="dashboard-right">
+
+            <div class="player-rank">
+
+                PLAYER
+
+            </div>
+
+
+            <button
+                type="button"
+                class="dashboard-button">
+
+                PROFILE
+
+            </button>
+
+        </div>
+
+
+
+        <!-- =================================================
+             HOLOGRAM
+        ================================================== -->
+
+        <div
+            class="hologram-core"
+            aria-label="Drag KCK hologram">
+
+            <div
+                class="hologram-ring ring-one">
+            </div>
+
+
+            <div
+                class="hologram-ring ring-two">
+            </div>
+
+
+            <div
+                class="hologram-ring ring-three">
+            </div>
+
+
+            <div class="hologram-center">
+
+                KCK
 
             </div>
 
@@ -100,98 +392,77 @@
 
 
 
-        <!-- MAIN TITLE -->
+        <!-- =================================================
+             DASHBOARD CENTER
+        ================================================== -->
 
-        <div class="brand">
+        <div class="dashboard-center">
 
-            <img
-               src="images/KCK-Hero.png"
-               alt="KCK Gaming Hub">
+            <h1>
+
+                WELCOME
+
+                <span id="dashboardGamerName">
+                    PLAYER
+                </span>
+
+            </h1>
+
+
+            <p class="dashboard-subtitle">
+
+                YOUR GAMING JOURNEY STARTS HERE
+
+            </p>
+
+
+            <button
+                type="button"
+                class="game-hub-button">
+
+                <span class="game-hub-icon">
+                    🎮
+                </span>
+
+
+                <span>
+                    GAME HUB
+                </span>
+
+
+                <small>
+                    ENTER THE BATTLE
+                </small>
+
+            </button>
 
         </div>
 
 
 
-        <!-- SUBTITLE -->
-
-        <h3>
-
-            BECOME A CHAMPION
-
-        </h3>
-
-
-
-        <!-- DESCRIPTION -->
-
-        <p>
-
-            Compete WorldWide,
-            Prove Yourslef Among Players From Around The World,
-            And Win Amazing Cash Prizes
-
-        </p>
-
-
-
-        <!-- SIGN IN -->
+        <!-- =================================================
+             SIGN OUT
+        ================================================== -->
 
         <button
-            onclick="joinTournament()">
+            type="button"
+            class="sign-out-button">
 
-            SIGN IN
+            SIGN OUT
 
         </button>
 
-
-    </section>
-
-<!-- =========================================
-     SIGN IN PANEL
-     ========================================= -->
-
-<div id="loginPanel" class="login-panel">
-
-    <div class="login-box">
-
-        <button
-            class="close-login"
-            onclick="closeLogin()">
-            ×
-        </button>
-
-        <h2>
-            KCK GAMING HUB
-        </h2>
-
-        
-
-        <input
-            type="text"
-            id="gamerName"
-            placeholder="Gamer Name">
-
-        <input
-            type="email"
-            id="email"
-            placeholder="Email Address">
-
-        <input
-            type="password"
-            id="password"
-            placeholder="Password">
-
-        <button
-            class="login-submit"
-            onclick="submitLogin()">
-            ENTER GAMING HUB
-        </button>
 
     </div>
 
-</div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
 
     <script src="script.js"></script>
+
 
 </body>
 

@@ -1,12 +1,14 @@
-/* =========================================
+/* =========================================================
    KCK GAMING HUB
-   FUTURISTIC WEBSITE STYLES
-   ========================================= */
+   FUTURISTIC WEBSITE CSS
+   UPDATED: 09 AUGUST 2026
+   MOBILE-FIRST / MOBILE-SAFE
+========================================================= */
 
 
-/* =========================================
-   BASIC RESET
-   ========================================= */
+/* =========================================================
+   1. BASIC RESET
+========================================================= */
 
 * {
     margin: 0;
@@ -14,16 +16,13 @@
     box-sizing: border-box;
 }
 
-
-/* =========================================
-   BODY
-   ========================================= */
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-
     min-height: 100vh;
-
     color: white;
 
     background:
@@ -39,15 +38,13 @@ body {
 }
 
 
-/* =========================================
-   MOVING PARTICLE BACKGROUND
-   ========================================= */
+/* =========================================================
+   2. PARTICLE BACKGROUND
+========================================================= */
 
 #particleCanvas {
     position: fixed;
-
-    top: 0;
-    left: 0;
+    inset: 0;
 
     width: 100%;
     height: 100%;
@@ -58,181 +55,158 @@ body {
 }
 
 
-/* =========================================
-   NAVIGATION BAR
-   ========================================= */
+/* =========================================================
+   3. NAVIGATION
+========================================================= */
 
 .navbar {
     position: fixed;
 
     top: 0;
-    left: 0;
+    left: 50;
 
     width: 100%;
-    height: 90px;
+    height: 75px;
 
-    padding: 15px 25px;
+    padding: 10px 12px;
 
     display: flex;
-
     align-items: flex-start;
-
     justify-content: flex-end;
 
     z-index: 1000;
+
+    pointer-events: none;
 }
-
-
-/* =========================================
-   NAVIGATION CONTROL
-   ========================================= */
 
 .nav-control {
     position: relative;
 
+    width: auto;
+
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
 
     z-index: 1005;
+
+    pointer-events: auto;
 }
 
 
-/* =========================================
-   MENU BUTTON
-   ========================================= */
+/* =========================================================
+   4. MENU BUTTON
+========================================================= */
 
 .menu-button {
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
 
     border: 1px solid #ff2bd6;
-
     border-radius: 14px;
 
-    background: #050008;
+    background: #050008 !important;
+    color: white !important;
 
-    color: white;
-
-    font-size: 28px;
+    font-size: 24px;
 
     cursor: pointer;
 
     position: relative;
-
-    z-index: 1005;
+    z-index: 1010;
 
     box-shadow:
         0 0 12px #ff2bd6,
         inset 0 0 12px #300025;
 
     transition:
-        transform 1.6s cubic-bezier(.2,.7,.2,1),
-        box-shadow 0.6s ease,
-        border-radius 0.6s ease;
+        box-shadow .3s ease,
+        background .3s ease,
+        transform .3s ease;
 }
 
+.menu-button:hover {
+    box-shadow:
+        0 0 18px #ff2bd6,
+        0 0 35px rgba(255, 43, 214, .4),
+        inset 0 0 15px #300025;
+}
 
-/* =========================================
-   OPEN MENU BUTTON
-   ========================================= */
+.menu-button:active {
+    transform: scale(.94);
+}
 
 .menu-button.active {
+    transform: rotate(180deg);
 
-    transform:
-        translateX(-430px)
-        rotate(180deg);
-
-    border-radius: 14px;
+    background: #050008 !important;
+    color: white !important;
 
     box-shadow:
         0 0 20px #ff2bd6,
-        0 0 35px rgba(255,43,214,.45);
+        0 0 35px rgba(255, 43, 214, .45);
 }
 
 
-/* =========================================
-   LANGUAGE SELECTOR
-   ========================================= */
+/* =========================================================
+   5. LANGUAGE SELECTOR
+========================================================= */
 
 #language {
+    width: 82px;
+    min-width: 82px;
 
-    margin-top: 8px;
+    margin-top: 5px;
 
-    padding: 6px 10px;
-
-    min-width: 100px;
-
-    border-radius: 8px;
-
-    background: #050008;
-
-    color: white;
+    padding: 5px 3px;
 
     border: 1px solid #ff2bd6;
+    border-radius: 8px;
+
+    background: #050008 !important;
+    color: white !important;
 
     outline: none;
 
     cursor: pointer;
 
-    z-index: 1006;
-
-    font-size: 13px;
+    font-size: 11px;
 
     text-align: center;
+
+    box-shadow:
+        0 0 8px rgba(255, 43, 214, .25);
+
+    z-index: 1010;
 }
 
-
-/* =========================================
-   LANGUAGE OPTIONS
-   ========================================= */
-
 #language option {
-
     background: #050008;
-
     color: white;
 }
 
 
-/* =========================================
-   NAVIGATION MENU PANEL
-   ========================================= */
+/* =========================================================
+   6. MENU PANEL
+========================================================= */
 
 .menu-panel {
-    position: absolute;
+    position: fixed;
 
-    /*
-       IMPORTANT:
-       Navbar has 15px top padding,
-       so the menu panel must also start at 15px.
-    */
-    top: 15px;
-
-    /*
-       Button is 55px wide and sits at the
-       right side of the navbar.
-    */
-    right: 80px;
+    top: 11px;
+    right: 40px;
 
     width: 0;
-    height: 55px;
+    height: 48px;
 
     overflow: hidden;
 
     display: flex;
-
-    flex-direction: row;
-
     align-items: center;
 
-    justify-content: flex-start;
-
-    gap: 32px;
-
     padding: 0;
+
+    gap: 0;
 
     background:
         linear-gradient(
@@ -243,41 +217,31 @@ body {
         );
 
     border: 1px solid #ff2bd6;
-
-    border-radius: 28px 0 0 28px;
+    border-radius: 25px 0 0 25px;
 
     opacity: 0;
 
     transform:
-        translateX(60px)
-        scaleX(0.05);
+        translateX(25px)
+        scaleX(.05);
 
     transform-origin: right center;
 
+    pointer-events: none;
+
     transition:
-        width 1.6s cubic-bezier(.2,.7,.2,1),
-        transform 1.6s cubic-bezier(.2,.7,.2,1),
-        opacity 0.5s ease;
+        width 1s cubic-bezier(.2, .7, .2, 1),
+        transform 1s cubic-bezier(.2, .7, .2, 1),
+        opacity .5s ease;
 
     z-index: 1002;
 }
 
-
-/* =========================================
-   OPEN MENU PANEL
-   ========================================= */
-
 .menu-panel.show {
+    width: 300px;
+    height: 48px;
 
-    width: 430px;
-
-    height: 55px;
-
-    padding:
-        0
-        30px
-        0
-        38px;
+    padding: 0 8px 0 18px;
 
     opacity: 1;
 
@@ -285,39 +249,37 @@ body {
         translateX(0)
         scaleX(1);
 
+    pointer-events: auto;
+
     box-shadow:
         0 0 15px #ff2bd6,
-        0 0 35px rgba(255,43,214,.35),
-        inset 0 0 20px rgba(255,43,214,.12);
+        0 0 35px rgba(255, 43, 214, .35),
+        inset 0 0 20px rgba(255, 43, 214, .12);
 }
 
 
-/* =========================================
-   MENU LINKS
-   ========================================= */
+/* =========================================================
+   7. MENU LINKS
+========================================================= */
 
 .menu-panel a {
+    height: 46px;
+
+    flex: 1 1 0;
+
+    min-width: 0;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
-    flex: 0 0 auto;
-
-    height: 55px;
-
-    margin: 0;
-
-    padding: 0;
+    padding: 0 4px;
 
     color: white;
 
     text-decoration: none;
 
-    font-size: 17px;
-
+    font-size: 12px;
     font-weight: bold;
 
     line-height: 1;
@@ -326,54 +288,36 @@ body {
 
     opacity: 0;
 
-    transform: translateX(-25px);
+    transform: translateX(-12px);
 
     transition:
-        opacity 0.6s ease,
-        transform 0.7s ease,
-        color 0.2s;
+        opacity .5s ease,
+        transform .7s cubic-bezier(.2, .7, .2, 1),
+        color .25s ease;
 }
 
-
-/* =========================================
-   SHOW LINKS
-   ========================================= */
-
 .menu-panel.show a {
-
     opacity: 1;
-
     transform: translateX(0);
 }
 
-
-/* =========================================
-   LINK DELAYS
-   ========================================= */
-
 .menu-panel.show a:nth-child(1) {
-    transition-delay: 0.45s;
+    transition-delay: .25s;
 }
 
 .menu-panel.show a:nth-child(2) {
-    transition-delay: 0.55s;
+    transition-delay: .35s;
 }
 
 .menu-panel.show a:nth-child(3) {
-    transition-delay: 0.65s;
+    transition-delay: .45s;
 }
 
 .menu-panel.show a:nth-child(4) {
-    transition-delay: 0.75s;
+    transition-delay: .55s;
 }
 
-
-/* =========================================
-   LINK HOVER
-   ========================================= */
-
 .menu-panel a:hover {
-
     color: #ff2bd6;
 
     text-shadow:
@@ -382,73 +326,30 @@ body {
 }
 
 
-/* =========================================
-   MAIN HERO
-   ========================================= */
-
-.hero {
-
-    position: relative;
-
-    z-index: 2;
-
-    min-height: 100vh;
-
-    width: 100%;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-    text-align: center;
-
-    padding:
-        130px
-        25px
-        60px;
-}
-
-
-/* =========================================
-   TOP LEFT KCK LOGO
-   ========================================= */
+/* =========================================================
+   8. LOGO
+========================================================= */
 
 .logo {
-
     position: absolute;
 
     top: 18px;
-
-    left: 25px;
+    left: 20px;
 
     width: 110px;
-
     height: 110px;
 
     z-index: 900;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 }
 
-
-/* =========================================
-   LOGO IMAGE
-   ========================================= */
-
 .logo-image {
-
     position: relative;
 
     width: 100px;
-
     height: 100px;
 
     overflow: hidden;
@@ -456,9 +357,7 @@ body {
     border-radius: 50%;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     border: 2px solid #ff2bd6;
@@ -469,18 +368,11 @@ body {
 
     box-shadow:
         0 0 12px #ff2bd6,
-        0 0 25px rgba(255,43,214,.35);
+        0 0 25px rgba(255, 43, 214, .35);
 }
 
-
-/* =========================================
-   LOGO IMAGE ITSELF
-   ========================================= */
-
 .logo-image img {
-
     width: 100%;
-
     height: 100%;
 
     object-fit: contain;
@@ -491,22 +383,19 @@ body {
 }
 
 
-/* =========================================
-   RED • WHITE • BLUE SPINNING RING
-   ========================================= */
+/* =========================================================
+   9. LOGO RING
+========================================================= */
 
 .logo::before {
-
     content: "";
 
     position: absolute;
 
     top: 0;
-
     left: 0;
 
     width: 110px;
-
     height: 110px;
 
     border-radius: 50%;
@@ -526,23 +415,15 @@ body {
     pointer-events: none;
 }
 
-
-/* =========================================
-   RING INNER CUTOUT
-   ========================================= */
-
 .logo::after {
-
     content: "";
 
     position: absolute;
 
     top: 4px;
-
     left: 4px;
 
     width: 102px;
-
     height: 102px;
 
     border-radius: 50%;
@@ -554,11 +435,6 @@ body {
     pointer-events: none;
 }
 
-
-/* =========================================
-   RING ROTATION
-   ========================================= */
-
 @keyframes logoRingSpin {
 
     from {
@@ -568,43 +444,56 @@ body {
     to {
         transform: rotate(360deg);
     }
-
 }
 
 
-/* =========================================
-   CENTER HERO IMAGE
-   ========================================= */
+/* =========================================================
+   10. HERO
+========================================================= */
 
-.brand {
+.hero {
+    position: relative;
 
+    z-index: 2;
+
+    min-height: 100vh;
     width: 100%;
 
     display: flex;
-
-    justify-content: center;
+    flex-direction: column;
 
     align-items: center;
+    justify-content: center;
 
-    margin-top: -30px;
+    text-align: center;
 
-    margin-bottom: 22px;
+    padding: 125px 20px 60px;
+}
+
+
+/* =========================================================
+   11. BRAND
+========================================================= */
+
+.brand {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: -25px;
+    margin-bottom: 20px;
 
     overflow: visible;
 }
 
-
-/* =========================================
-   CENTER IMAGE
-   ========================================= */
-
 .brand img {
-
     width: 560px;
 
-    height: auto;
-
     max-width: 90vw;
+
+    height: auto;
 
     display: block;
 
@@ -612,16 +501,15 @@ body {
 
     filter:
         drop-shadow(0 0 10px #ff2bd6)
-        drop-shadow(0 0 25px rgba(255,43,214,.6));
+        drop-shadow(0 0 25px rgba(255, 43, 214, .6));
 }
 
 
-/* =========================================
-   HERO TITLE
-   ========================================= */
+/* =========================================================
+   12. HERO TEXT
+========================================================= */
 
 .hero h3 {
-
     margin-bottom: 15px;
 
     font-size: 28px;
@@ -633,13 +521,7 @@ body {
     letter-spacing: 2px;
 }
 
-
-/* =========================================
-   HERO DESCRIPTION
-   ========================================= */
-
 .hero p {
-
     max-width: 600px;
 
     margin-bottom: 5px;
@@ -652,19 +534,18 @@ body {
 }
 
 
-/* =========================================
-   SIGN IN BUTTON
-   ========================================= */
+/* =========================================================
+   13. JOIN / SIGN IN BUTTON
+========================================================= */
 
 button[onclick="joinTournament()"] {
-
     display: block;
 
     margin: 30px auto 0;
 
     padding: 10px 40px;
 
-    border: 2px solid #ff2bd6;
+    border: 2px solid #ff2bd6 !important;
 
     border-radius: 35px;
 
@@ -674,9 +555,9 @@ button[onclick="joinTournament()"] {
             #650052,
             #d400a8,
             #650052
-        );
+        ) !important;
 
-    color: white;
+    color: white !important;
 
     font-size: 20px;
 
@@ -686,153 +567,229 @@ button[onclick="joinTournament()"] {
 
     cursor: pointer;
 
-    text-align: center;
-
     box-shadow:
-        0 0 15px rgba(255,43,214,.7),
-        0 0 35px rgba(180,0,150,.35);
+        0 0 15px rgba(255, 43, 214, .7),
+        0 0 35px rgba(180, 0, 150, .35);
+
+    outline: none !important;
+
+    -webkit-tap-highlight-color: transparent;
 
     transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+        transform .3s ease,
+        box-shadow .3s ease;
 }
 
-
-/* =========================================
-   SIGN IN HOVER
-   ========================================= */
-
 button[onclick="joinTournament()"]:hover {
-
     transform: scale(1.06);
 
     box-shadow:
         0 0 20px #ff2bd6,
-        0 0 45px rgba(255,43,214,.6);
+        0 0 45px rgba(255, 43, 214, .6);
 }
 
 
-/* =========================================
-   MOBILE
-   ========================================= */
+/* =========================================================
+   14. NEWS
+   NOTE:
+   This remains available for the separate NEWS page.
+========================================================= */
 
-@media (max-width: 600px) {
+.news-section {
+    width: 100%;
+    max-width: 1100px;
 
-    .brand img {
+    margin: 100px auto 0;
 
-        width: 85vw;
-
-        max-width: 400px;
-    }
-
-
-    .logo {
-
-        width: 90px;
-
-        height: 90px;
-
-        top: 15px;
-
-        left: 15px;
-    }
-
-
-    .logo-image {
-
-        width: 80px;
-
-        height: 80px;
-    }
-
-
-    .logo::before {
-
-        width: 90px;
-
-        height: 90px;
-    }
-
-
-    .logo::after {
-
-        width: 82px;
-
-        height: 82px;
-
-        top: 4px;
-
-        left: 4px;
-    }
-
-
-    .menu-panel.show {
-
-        width: 320px;
-
-        padding-left: 25px;
-
-        padding-right: 15px;
-    }
-
-
-    .menu-panel {
-
-        right: 55px;
-
-        gap: 18px;
-    }
-
-
-    .menu-panel a {
-
-        font-size: 14px;
-    }
-
-
-    .menu-button.active {
-
-        transform:
-            translateX(-320px)
-            rotate(180deg);
-    }
-
-
-    .hero h3 {
-
-        font-size: 23px;
-    }
-
-
-    .hero p {
-
-        font-size: 15px;
-    }
-
-
-    button[onclick="joinTournament()"] {
-
-        padding:
-            14px 42px;
-
-        font-size: 18px;
-    }
-
-
-    #language {
-
-        min-width: 90px;
-
-        font-size: 12px;
-    }
-
+    padding: 40px 20px 80px;
 }
-/* =========================================
-   SMALL TAP RIPPLE
-   ========================================= */
+
+.news-header {
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+.news-label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #ff2bd6;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+
+    text-shadow:
+        0 0 10px rgba(255, 43, 214, .7);
+}
+
+.news-header h2 {
+    margin-bottom: 12px;
+
+    font-size: 32px;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+
+    text-shadow:
+        0 0 10px #ff2bd6,
+        0 0 25px rgba(255, 43, 214, .5);
+}
+
+.news-header p {
+    max-width: 650px;
+
+    margin: auto;
+
+    color: #cdbed2;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+.news-container {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(280px, 1fr)
+        );
+
+    gap: 22px;
+}
+
+.news-card {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 25px;
+
+    min-height: 320px;
+
+    border: 1px solid rgba(255, 43, 214, .45);
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(35, 0, 45, .9),
+            rgba(5, 0, 8, .95)
+        );
+
+    box-shadow:
+        0 0 15px rgba(255, 43, 214, .12),
+        inset 0 0 20px rgba(255, 43, 214, .05);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 0 20px rgba(255, 43, 214, .35),
+        0 0 45px rgba(255, 43, 214, .12);
+}
+
+.news-icon {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 18px;
+
+    border: 1px solid #ff2bd6;
+
+    border-radius: 15px;
+
+    background: rgba(255, 43, 214, .08);
+
+    font-size: 28px;
+
+    box-shadow:
+        0 0 15px rgba(255, 43, 214, .25);
+}
+
+.news-content {
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+}
+
+.news-date {
+    margin-bottom: 8px;
+
+    color: #ff2bd6;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+.news-content h3 {
+    margin-bottom: 12px;
+
+    font-size: 19px;
+
+    line-height: 1.3;
+}
+
+.news-content p {
+    margin-bottom: 20px;
+
+    color: #cdbed2;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+.news-button {
+    align-self: flex-start;
+
+    margin-top: auto;
+
+    padding: 9px 16px;
+
+    border: 1px solid #ff2bd6;
+
+    border-radius: 20px;
+
+    background: rgba(255, 43, 214, .08);
+
+    color: white;
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   15. TAP RIPPLE
+========================================================= */
 
 .tap-ripple {
-
     position: fixed;
 
     width: 16px;
@@ -849,24 +806,18 @@ button[onclick="joinTournament()"]:hover {
         scale(0);
 
     animation:
-        tapRipple 0.7s ease-out forwards;
+        tapRipple .7s ease-out forwards;
 
-    z-index: 9999;
+    z-index: 99999;
 
     box-shadow:
         0 0 8px #ff2bd6,
-        0 0 18px rgba(255,43,214,.6);
+        0 0 18px rgba(255, 43, 214, .6);
 }
-
-
-/* =========================================
-   RIPPLE ANIMATION
-   ========================================= */
 
 @keyframes tapRipple {
 
     0% {
-
         transform:
             translate(-50%, -50%)
             scale(0);
@@ -875,7 +826,6 @@ button[onclick="joinTournament()"]:hover {
     }
 
     100% {
-
         transform:
             translate(-50%, -50%)
             scale(4);
@@ -883,12 +833,13 @@ button[onclick="joinTournament()"]:hover {
         opacity: 0;
     }
 }
-/* =========================================
-   KCK SIGN IN PANEL
-   ========================================= */
+
+
+/* =========================================================
+   16. LOGIN PANEL
+========================================================= */
 
 .login-panel {
-
     position: fixed;
 
     inset: 0;
@@ -896,11 +847,11 @@ button[onclick="joinTournament()"]:hover {
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
-    background:
-        rgba(5, 0, 8, 0.82);
+    padding: 20px;
+
+    background: rgba(5, 0, 8, .82);
 
     backdrop-filter: blur(8px);
 
@@ -911,19 +862,13 @@ button[onclick="joinTournament()"]:hover {
     pointer-events: none;
 
     transition:
-        opacity 0.4s ease,
-        visibility 0.4s ease;
+        opacity .4s ease,
+        visibility .4s ease;
 
     z-index: 5000;
 }
 
-
-/* =========================================
-   OPEN LOGIN PANEL
-   ========================================= */
-
 .login-panel.show {
-
     opacity: 1;
 
     visibility: visible;
@@ -932,17 +877,16 @@ button[onclick="joinTournament()"]:hover {
 }
 
 
-/* =========================================
-   LOGIN BOX
-   ========================================= */
+/* =========================================================
+   17. LOGIN BOX
+========================================================= */
 
 .login-box {
-
     position: relative;
 
     width: 380px;
 
-    max-width: 90vw;
+    max-width: 100%;
 
     padding: 40px 35px;
 
@@ -960,33 +904,25 @@ button[onclick="joinTournament()"]:hover {
         );
 
     box-shadow:
-        0 0 20px rgba(255,43,214,.5),
-        0 0 60px rgba(120,0,100,.35),
-        inset 0 0 25px rgba(255,43,214,.08);
+        0 0 20px rgba(255, 43, 214, .5),
+        0 0 60px rgba(120, 0, 100, .35),
+        inset 0 0 25px rgba(255, 43, 214, .08);
 
     transform:
         translateY(25px)
         scale(.95);
 
     transition:
-        transform 0.4s ease;
+        transform .4s ease;
 }
 
-
 .login-panel.show .login-box {
-
     transform:
         translateY(0)
         scale(1);
 }
 
-
-/* =========================================
-   LOGIN TITLE
-   ========================================= */
-
 .login-box h2 {
-
     margin-bottom: 8px;
 
     color: white;
@@ -999,87 +935,61 @@ button[onclick="joinTournament()"]:hover {
 
     text-shadow:
         0 0 10px #ff2bd6,
-        0 0 25px rgba(255,43,214,.6);
+        0 0 25px rgba(255, 43, 214, .6);
 }
 
 
-.login-title {
-
-    margin-bottom: 25px;
-
-    color: #ff2bd6;
-
-    font-size: 16px;
-
-    font-weight: bold;
-
-    letter-spacing: 3px;
-}
-
-
-/* =========================================
-   INPUTS
-   ========================================= */
+/* =========================================================
+   18. LOGIN INPUTS
+========================================================= */
 
 .login-box input {
-
     display: block;
 
     width: 100%;
-
     height: 48px;
 
     margin-bottom: 15px;
 
     padding: 0 15px;
 
-    border: 1px solid rgba(255,43,214,.55);
+    border: 1px solid rgba(255, 43, 214, .55);
 
     border-radius: 10px;
 
     outline: none;
 
-    background:
-        rgba(0,0,0,.55);
+    background: rgba(0, 0, 0, .55);
 
     color: white;
 
     font-size: 15px;
-
-    transition:
-        border-color .25s ease,
-        box-shadow .25s ease;
 }
 
-
 .login-box input::placeholder {
-
     color: #a996ac;
 }
 
-
 .login-box input:focus {
-
     border-color: #ff2bd6;
 
     box-shadow:
-        0 0 10px rgba(255,43,214,.4);
+        0 0 10px rgba(255, 43, 214, .4);
 }
 
 
-/* =========================================
-   ENTER BUTTON
-   ========================================= */
+/* =========================================================
+   19. LOGIN SUBMIT
+========================================================= */
 
 .login-submit {
-
     width: 100%;
 
     margin-top: 10px;
 
     padding: 13px 20px;
 
-    border: 1px solid #ff2bd6;
+    border: 1px solid #ff2bd6 !important;
 
     border-radius: 25px;
 
@@ -1089,9 +999,9 @@ button[onclick="joinTournament()"]:hover {
             #650052,
             #d400a8,
             #650052
-        );
+        ) !important;
 
-    color: white;
+    color: white !important;
 
     font-size: 15px;
 
@@ -1102,65 +1012,1302 @@ button[onclick="joinTournament()"]:hover {
     cursor: pointer;
 
     box-shadow:
-        0 0 15px rgba(255,43,214,.45);
+        0 0 15px rgba(255, 43, 214, .45);
 
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease;
+    outline: none !important;
 }
 
-
 .login-submit:hover {
-
     transform: scale(1.03);
 
     box-shadow:
         0 0 20px #ff2bd6,
-        0 0 35px rgba(255,43,214,.5);
+        0 0 35px rgba(255, 43, 214, .5);
 }
 
 
-/* =========================================
-   CLOSE BUTTON
-   ========================================= */
+/* =========================================================
+   20. LOGIN CLOSE BUTTON
+========================================================= */
 
 .close-login {
-
     position: absolute;
 
     top: 12px;
-
     right: 15px;
 
     width: 34px;
-
     height: 34px;
 
-    border: 1px solid #ff2bd6;
+    border: 1px solid #ff2bd6 !important;
 
     border-radius: 50%;
 
-    background: transparent;
+    background:
+        linear-gradient(
+            145deg,
+            #650052,
+            #25001f
+        ) !important;
 
-    color: white;
+    color: white !important;
 
     font-size: 23px;
 
-    line-height: 28px;
-
     cursor: pointer;
 
-    transition:
-        transform .25s ease,
-        background .25s ease;
+    outline: none !important;
+
+    box-shadow:
+        0 0 8px rgba(255, 43, 214, .5);
+}
+
+.close-login:hover {
+    transform:
+        rotate(90deg)
+        scale(1.05);
 }
 
 
-.close-login:hover {
+/* =========================================================
+   PLAYER DASHBOARD
+   FULL-SCREEN PROFILE MODE
+   HOME PAGE COMPLETELY HIDDEN
+========================================================= */
 
-    transform: rotate(90deg);
+#playerDashboard {
+    position: fixed;
 
-    background: #ff2bd6;
+    inset: 0;
 
-    color: #050008;
+    width: 100vw;
+    height: 100vh;
+
+    z-index: 20000;
+
+    display: none;
+
+    overflow: hidden;
+
+    color: white;
+
+    /* IMPORTANT:
+       Completely blocks the Home page behind it */
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            #164c78 0%,
+            #0a213b 32%,
+            #030c17 70%,
+            #000000 100%
+        );
+
+    isolation: isolate;
+
+    opacity: 1;
+    visibility: visible;
+}
+
+#playerDashboard.show {
+    display: block;
+
+    opacity: 1;
+    visibility: visible;
+}
+
+/* =========================================================
+   22. DASHBOARD EFFECTS
+========================================================= */
+
+#playerDashboard::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(80, 200, 255, .08),
+            transparent
+        );
+
+    animation:
+        dashboardLight 5s linear infinite;
+}
+
+@keyframes dashboardLight {
+
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+#playerDashboard::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: .18;
+
+    background-image:
+        linear-gradient(
+            rgba(80, 200, 255, .15) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(80, 200, 255, .15) 1px,
+            transparent 1px
+        );
+
+    background-size: 45px 45px;
+}
+
+
+/* =========================================================
+   23. DASHBOARD VARIABLES
+========================================================= */
+
+:root {
+    --welcome-up: -35px;
+    --gamehub-down: 45px;
+    --hologram-size: 420px;
+}
+
+
+/* =========================================================
+   24. DASHBOARD LEFT
+========================================================= */
+
+.dashboard-left {
+    position: absolute;
+
+    top: 20px;
+    left: 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    z-index: 20;
+}
+
+
+/* =========================================================
+   25. DASHBOARD RIGHT
+========================================================= */
+
+.dashboard-right {
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    gap: 8px;
+
+    z-index: 20;
+}
+
+
+/* =========================================================
+   26. DASHBOARD BUTTONS
+========================================================= */
+
+.dashboard-button {
+    min-width: 125px;
+
+    padding: 8px 14px;
+
+    border: 1px solid rgba(80, 200, 255, .8);
+
+    border-radius: 10px;
+
+    background: rgba(3, 20, 38, .75);
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: .8px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 10px rgba(60, 190, 255, .25),
+        inset 0 0 10px rgba(60, 190, 255, .08);
+
+    backdrop-filter: blur(8px);
+}
+
+.dashboard-button:hover {
+    transform: translateY(-2px);
+
+    background: rgba(15, 60, 95, .85);
+
+    box-shadow:
+        0 0 15px rgba(70, 200, 255, .55);
+}
+
+
+/* =========================================================
+   27. KCK POINTS
+========================================================= */
+
+.kck-points span {
+    margin-left: 5px;
+
+    color: #ffae00;
+
+    text-shadow:
+        0 0 8px #65d9ff;
+}
+
+
+/* =========================================================
+   28. PLAYER RANK
+========================================================= */
+
+.player-rank {
+    padding: 6px 13px;
+
+    border: 1px solid rgba(190, 220, 235, .65);
+
+    border-radius: 10px;
+
+    background: rgba(10, 25, 40, .8);
+
+    color: #dceeff;
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+    box-shadow:
+        0 0 10px rgba(150, 210, 240, .25);
+}
+
+
+/* =========================================================
+   29. DASHBOARD CENTER
+========================================================= */
+
+.dashboard-center {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 90%;
+
+    max-width: 700px;
+
+    text-align: center;
+
+    z-index: 15;
+}
+
+
+/* =========================================================
+   30. WELCOME
+========================================================= */
+
+.dashboard-center h1 {
+    position: relative;
+
+    top: var(--welcome-up);
+
+    margin-bottom: 0;
+
+    font-size: 30px;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+
+    text-shadow:
+        0 0 10px #4fcaff,
+        0 0 25px rgba(60, 180, 255, .55);
+}
+
+.dashboard-subtitle {
+    position: relative;
+
+    top: var(--welcome-up);
+
+    margin-top: 8px;
+
+    color: #b9d8e8;
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   31. GAME HUB
+========================================================= */
+
+.game-hub-button {
+    position: relative;
+
+    top: var(--gamehub-down);
+
+    width: 260px;
+    height: 160px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    margin: auto;
+
+    border: 1px solid #65d9ff;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15, 65, 100, .75),
+            rgba(2, 15, 28, .9)
+        );
+
+    color: white;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 15px rgba(70, 200, 255, .45),
+        0 0 45px rgba(40, 150, 220, .15),
+        inset 0 0 20px rgba(70, 200, 255, .1);
+}
+
+.game-hub-button:hover {
+    transform:
+        translateY(-4px)
+        scale(1.05);
+}
+
+.game-hub-icon {
+    font-size: 42px;
+
+    filter:
+        drop-shadow(0 0 8px #65d9ff);
+}
+
+.game-hub-button > span:nth-child(2) {
+    font-size: 20px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+.game-hub-button small {
+    color: #8fdcff;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   32. SIGN OUT
+========================================================= */
+
+.sign-out-button {
+    position: fixed !important;
+
+    left: 20px !important;
+    bottom: 12px !important;
+
+    width: auto !important;
+
+    height: 30px !important;
+
+    padding: 5px 15px !important;
+
+    border: 1px solid #ff6478 !important;
+
+    border-radius: 12px !important;
+
+    background:
+        rgba(35, 8, 18, .95) !important;
+
+    color: white !important;
+
+    font-size: 11px !important;
+
+    font-weight: 800 !important;
+
+    z-index: 999999 !important;
+
+    visibility: visible !important;
+
+    opacity: 1 !important;
+
+    pointer-events: auto !important;
+
+    box-shadow:
+        0 0 12px rgba(255, 70, 100, .5);
+}
+
+
+/* =========================================================
+   33. HOLOGRAM
+========================================================= */
+
+.hologram-core {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: var(--hologram-size);
+    height: var(--hologram-size);
+
+    transform:
+        translate(-50%, -50%);
+
+    z-index: 5;
+
+    cursor: grab;
+
+    touch-action: none;
+
+    perspective: 1000px;
+
+    transform-style: preserve-3d;
+
+    filter:
+        drop-shadow(0 0 18px rgba(80, 210, 255, .9))
+        drop-shadow(0 0 60px rgba(40, 150, 255, .45));
+}
+
+.hologram-core.dragging {
+    cursor: grabbing;
+}
+
+
+/* =========================================================
+   34. HOLOGRAM RINGS
+========================================================= */
+
+.hologram-ring {
+    position: absolute;
+
+    top: 30%;
+    left: 50%;
+
+    border-radius: 60%;
+
+    border: 2px solid rgba(100, 220, 255, .8);
+
+    transform-style: preserve-3d;
+
+    box-shadow:
+        0 0 12px rgba(80, 210, 255, .8),
+        inset 0 0 18px rgba(80, 210, 255, .2);
+
+    pointer-events: none;
+}
+
+.ring-one {
+    width: 68%;
+    height: 58%;
+
+    transform:
+        translate(-50%, -50%)
+        rotateX(68deg);
+}
+
+.ring-two {
+    width: 68%;
+    height: 58%;
+
+    border-color:
+        rgba(190, 235, 255, .85);
+
+    transform:
+        translate(-50%, -50%)
+        rotateY(65deg);
+}
+
+
+/* =========================================================
+   35. HOLOGRAM EXTRA STRUCTURE
+========================================================= */
+
+.hologram-core::after {
+    content: "";
+
+    position: absolute;
+
+    top: 28%;
+    left: 50%;
+
+    width: 60%;
+    height: 100%;
+
+    transform:
+        translate(-50%, -50%)
+        rotateX(55deg)
+        rotateY(35deg);
+
+    border-radius: 50%;
+
+    border:
+        1px dashed rgba(120, 225, 255, .7);
+
+    box-shadow:
+        0 0 15px rgba(70, 200, 255, .45);
+
+    animation:
+        hologramOrbit 10s linear infinite;
+
+    pointer-events: none;
+}
+
+@keyframes hologramOrbit {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotateX(55deg)
+            rotateY(0deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotateX(55deg)
+            rotateY(360deg);
+    }
+}
+
+
+/* =========================================================
+   36. HOLOGRAM CENTER
+========================================================= */
+
+.hologram-center {
+    position: absolute;
+
+    top: 30%;
+    left: 48%;
+
+    width: 30%;
+    height: 30%;
+
+    transform:
+        translate(-50%, -50%);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(150, 230, 255, .9);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(80, 200, 255, .38),
+            rgba(5, 30, 55, .8)
+        );
+
+    color: #dff8ff;
+
+    font-size: 24px;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+
+    text-shadow:
+        0 0 8px #65d9ff,
+        0 0 20px #3aaaff;
+
+    box-shadow:
+        0 0 15px #65d9ff,
+        0 0 45px rgba(60, 190, 255, .6),
+        inset 0 0 30px rgba(100, 220, 255, .25);
+
+    z-index: 5;
+}
+
+
+/* =========================================================
+   37. HOLOGRAM SWEEP
+========================================================= */
+
+.hologram-core::before {
+    content: "";
+
+    position: absolute;
+
+    top: 30%;
+    left: 48%;
+
+    width: 98%;
+    height: 9px;
+
+    transform:
+        translate(-50%, -50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(100, 220, 255, .95),
+            transparent
+        );
+
+    box-shadow:
+        0 0 15px #05b6f1;
+
+    animation:
+        hologramSweep 2s linear infinite;
+
+    pointer-events: none;
+}
+
+@keyframes hologramSweep {
+
+    0% {
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+    }
+
+    100% {
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   38. MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    /* ---------- NAVIGATION ---------- */
+
+    .navbar {
+        height: 65px;
+
+        padding:
+            8px 5px;
+
+        justify-content: flex-end;
+    }
+
+    .nav-control {
+        width: 55px;
+    }
+
+    .menu-button {
+        width: 48px;
+        height: 48px;
+
+        font-size: 23px;
+    }
+
+    /* IMPORTANT:
+       BUTTON DOES NOT MOVE LEFT ON MOBILE */
+
+    .menu-button.active {
+        transform: rotate(180deg);
+    }
+
+
+    /* ---------- MOBILE MENU ---------- */
+
+    .menu-panel {
+        top: 8px;
+
+        right: 57px;
+
+        width: 0;
+
+        height: 47px;
+
+        border-radius:
+            24px 0 0 24px;
+
+        transform:
+            translateX(25px)
+            scaleX(.05);
+    }
+
+    .menu-panel.show {
+        width:
+            min(
+                300px,
+                calc(100vw - 65px)
+            );
+
+        height: 47px;
+
+        padding:
+            0 5px 0 14px;
+
+        gap: 0;
+
+        transform:
+            translateX(0)
+            scaleX(1);
+    }
+
+    .menu-panel a {
+        height: 45px;
+
+        font-size: 10px;
+
+        padding: 0 2px;
+    }
+
+
+    /* ---------- LOGO ---------- */
+
+    .logo {
+        width: 82px;
+        height: 82px;
+
+        top: 10px;
+        left: 8px;
+    }
+
+    .logo-image {
+        width: 72px;
+        height: 72px;
+    }
+
+    .logo::before {
+        width: 82px;
+        height: 82px;
+    }
+
+    .logo::after {
+        width: 74px;
+        height: 74px;
+
+        top: 4px;
+        left: 4px;
+    }
+
+
+    /* ---------- HERO ---------- */
+
+    .hero {
+        min-height: 100vh;
+
+        padding:
+            115px 15px 50px;
+    }
+
+    .brand {
+        margin-top: -10px;
+
+        margin-bottom: 18px;
+    }
+
+    .brand img {
+        width: 88vw;
+
+        max-width: 400px;
+    }
+
+    .hero h3 {
+        font-size: 22px;
+
+        letter-spacing: 1.5px;
+
+        margin-bottom: 12px;
+    }
+
+    .hero p {
+        max-width: 94vw;
+
+        font-size: 15px;
+
+        line-height: 1.5;
+    }
+
+    button[onclick="joinTournament()"] {
+        margin-top: 25px;
+
+        padding:
+            13px 38px;
+
+        font-size: 18px;
+    }
+
+
+    /* ---------- NEWS ---------- */
+
+    .news-section {
+        margin-top: 70px;
+
+        padding:
+            30px 10px 60px;
+    }
+
+    .news-header h2 {
+        font-size: 26px;
+    }
+
+    .news-header p {
+        font-size: 14px;
+    }
+
+    .news-container {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .news-card {
+        min-height: auto;
+
+        padding: 20px;
+    }
+
+    .news-content h3 {
+        font-size: 17px;
+    }
+
+
+    /* ---------- LOGIN ---------- */
+
+    .login-panel {
+        padding: 15px;
+    }
+
+    .login-box {
+        width: 92vw;
+
+        max-width: 380px;
+
+        padding:
+            35px 22px;
+    }
+
+    .login-box h2 {
+        font-size: 22px;
+
+        letter-spacing: 2px;
+    }
+
+
+    /* ---------- DASHBOARD ---------- */
+
+    :root {
+        --welcome-up: -190px;
+
+        --gamehub-down: 130px;
+
+        --hologram-size: 400px;
+    }
+
+    .dashboard-left {
+        top: 12px;
+        left: 5px;
+
+        gap: 8px;
+    }
+
+    .dashboard-right {
+        top: 12px;
+        right: 5px;
+
+        gap: 8px;
+    }
+
+    .dashboard-button {
+        min-width: 94px;
+
+        padding:
+            5px 10px;
+
+        font-size: 10px;
+    }
+
+    .player-rank {
+        padding:
+            4px 12px;
+
+        font-size: 12px;
+    }
+
+    .dashboard-center {
+        width: 94%;
+    }
+
+    .dashboard-center h1 {
+        font-size: 28px;
+
+        letter-spacing: 2px;
+    }
+
+    .dashboard-subtitle {
+        font-size: 15px;
+    }
+
+    .game-hub-button {
+        width: 200px;
+
+        height: 100px;
+    }
+
+    .game-hub-icon {
+        font-size: 39px;
+    }
+
+    .game-hub-button > span:nth-child(2) {
+        font-size: 23px;
+    }
+
+    .sign-out-button {
+        left: 5px !important;
+
+        bottom: 8px !important;
+
+        padding:
+            6px 10px !important;
+
+        font-size: 10px !important;
+    }
+
+    .hologram-center {
+        font-size: 19px;
+
+        letter-spacing: 3px;
+    }
+}
+
+
+/* =========================================================
+   39. VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .logo {
+        left: 5px;
+    }
+
+    .menu-panel.show {
+        width:
+            calc(100vw - 65px);
+
+        padding-left: 8px;
+    }
+
+    .menu-panel a {
+        font-size: 9px;
+    }
+
+    .hero h3 {
+        font-size: 19px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .dashboard-center h1 {
+        font-size: 23px;
+    }
+
+    :root {
+        --hologram-size: 330px;
+    }
+}
+
+
+/* =========================================================
+   40. REDUCE ANIMATION FOR DEVICES THAT REQUEST IT
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}/* =====================================================
+   EDGE +1 PT POPUP
+===================================================== */
+
+.edge-point-popup {
+
+    position: fixed;
+
+    z-index: 99999;
+
+    pointer-events: none;
+
+    transform:
+        translate(-50%, -50%);
+
+    font-size: 20px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 6px #ff2bd6,
+        0 0 15px #ff2bd6,
+        0 0 30px #9b5cff,
+        0 0 50px #9b5cff;
+
+    animation:
+        edgePointFloat 2s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+}
+
+
+@keyframes edgePointFloat {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(.5);
+
+    }
+
+
+    15% {
+
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.25);
+
+    }
+
+
+    35% {
+
+        transform:
+            translate(-50%, -65%)
+            scale(1);
+
+    }
+
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translate(-50%, -150%)
+            scale(.85);
+
+    }
+
+}/* =========================================================
+   TOP NAVIGATION MENU PANEL
+   Slides toward the logo when opened
+========================================================= */
+
+.menu-panel {
+    position: fixed;
+
+    top: 70px;
+    left: 50%;
+
+    transform: translateX(-50%) translateY(-25px);
+
+    width: min(92vw, 520px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px;
+
+    background: rgba(8, 10, 30, 0.94);
+
+    border: 1px solid rgba(255, 43, 214, 0.55);
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 0 15px rgba(255, 43, 214, 0.35),
+        0 0 35px rgba(0, 234, 255, 0.18);
+
+    backdrop-filter: blur(12px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    z-index: 999;
+
+    transition:
+        transform 0.55s cubic-bezier(.2,.8,.2,1),
+        opacity 0.35s ease,
+        visibility 0.35s ease;
+}
+
+
+/* =========================================================
+   OPEN MENU
+========================================================= */
+
+.menu-panel.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+
+}
+
+
+/* =========================================================
+   MENU ITEMS
+========================================================= */
+
+.menu-panel a {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 10px 14px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+    white-space: nowrap;
+
+    border-radius: 10px;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.menu-panel a:hover {
+
+    color: #ff2bd6;
+
+    background: rgba(255, 43, 214, 0.12);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 12px rgba(255, 43, 214, 0.35);
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .menu-panel {
+
+        top: 65px;
+
+        width: 94vw;
+
+        gap: 3px;
+
+        padding: 7px;
+
+        border-radius: 13px;
+
+    }
+
+
+    .menu-panel a {
+
+        padding: 9px 7px;
+
+        font-size: 9px;
+
+        letter-spacing: .6px;
+
+    }
+
 }
